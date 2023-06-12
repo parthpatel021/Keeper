@@ -5,6 +5,7 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
+    // Creatimg array of notes with the help of useSate
     const [notes, setNotes] = useState([]);
 
     function addNote(newNote) {
@@ -26,8 +27,10 @@ function App() {
             <Header />
             <CreateArea onAdd={addNote} />
 
+            {/* Rendering each notes from notes array using Note component */}
             {notes.map((noteItem, index) => {
                 return (
+                    // passing props to Note component
                 <Note
                     key={index}
                     id={index}

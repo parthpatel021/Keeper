@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+//Importing Ui-libraries
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 
 function CreateArea(props) {
+    //create note object(with title & content field)
     const [note, setNote] = useState({
         title: "",
         content: ""
     });
+
+    //creating variable to keep track of (is user clicked on textArea or not)
     const [isExpanded,setIsExpanded] = useState(false);
 
     function handleChange(event) {
@@ -22,11 +26,15 @@ function CreateArea(props) {
     }
 
     function submitNote(event) {
+        //passing note-object to onAdd function in App.jsx component
         props.onAdd(note);
+        //reseting inputs
         setNote({
             title: "",
             content: ""
         });
+
+        //preventing button to refresh page (bacause of Form)
         event.preventDefault();
     }
 
@@ -53,6 +61,7 @@ function CreateArea(props) {
                     placeholder="Take a note..."
                     rows={isExpanded?"3":"1"}
                 />
+                {/* Adding Button and effect on button with the UI-libraries*/}
                 <Zoom in={isExpanded}>
                     <Fab onClick={submitNote}>
                         <AddIcon />

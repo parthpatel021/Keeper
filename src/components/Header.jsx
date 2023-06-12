@@ -5,6 +5,7 @@ function Header() {
     return (
         <header>
             <h1>
+                {/* Adding Icon Header */}
                 <HighlightIcon />
                 Keeper
             </h1>
